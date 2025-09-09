@@ -51,6 +51,9 @@
         .translate-x-full {
             transform: translateX(100%);
         }
+        .nav-link {
+             cursor: pointer;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -60,17 +63,17 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
-                <a href="#" class="flex items-center space-x-2">
+                <a class="flex items-center space-x-2 nav-link" data-target="home">
                     <i class="fa-solid fa-cogs text-red-500 text-3xl"></i>
                     <span class="text-2xl font-bold tracking-tighter">Redline Motors</span>
                 </a>
 
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-300">
-                    <a href="#products" class="hover:text-red-500 transition-colors">Turbochargers</a>
-                    <a href="#products" class="hover:text-red-500 transition-colors">Exhausts</a>
-                    <a href="#products" class="hover:text-red-500 transition-colors">Suspension</a>
-                    <a href="#about" class="hover:text-red-500 transition-colors">About Us</a>
+                    <a class="nav-link hover:text-red-500 transition-colors" data-target="turbochargers">Turbochargers</a>
+                    <a class="nav-link hover:text-red-500 transition-colors" data-target="exhausts">Exhausts</a>
+                    <a class="nav-link hover:text-red-500 transition-colors" data-target="suspension">Suspension</a>
+                    <a class="nav-link hover:text-red-500 transition-colors" data-target="about">About Us</a>
                 </nav>
 
                 <!-- Cart Icon -->
@@ -83,39 +86,45 @@
     </header>
 
     <main>
-        <!-- Hero Section -->
-        <section class="hero-bg text-white">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 text-center">
-                <h1 class="text-4xl md:text-6xl font-black uppercase tracking-wider">Authentic JDM Performance</h1>
-                <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">Direct from Japan to your garage. Unleash the true potential of your machine.</p>
-                <a href="#products" class="mt-8 inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105">Shop All Parts</a>
+        <!-- Home Page -->
+        <div data-page="home">
+            <section class="hero-bg text-white">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-32 md:py-48 text-center">
+                    <h1 class="text-4xl md:text-6xl font-black uppercase tracking-wider">Authentic JDM Performance</h1>
+                    <p class="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-gray-300">Direct from Japan to your garage. Unleash the true potential of your machine.</p>
+                    <a class="nav-link mt-8 inline-block bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition-transform transform hover:scale-105" data-target="all-products">Shop All Parts</a>
+                </div>
+            </section>
+            <div class="bg-gray-800 py-3">
+                <p class="text-center text-sm font-medium text-gray-300"><i class="fa-solid fa-globe mr-2"></i> We ship worldwide from Tokyo, Japan! <i class="fa-solid fa-plane-departure ml-2"></i></p>
             </div>
-        </section>
-
-        <!-- Worldwide Shipping Banner -->
-        <div class="bg-gray-800 py-3">
-            <p class="text-center text-sm font-medium text-gray-300"><i class="fa-solid fa-globe mr-2"></i> We ship worldwide from Tokyo, Japan! <i class="fa-solid fa-plane-departure ml-2"></i></p>
+            <section class="py-20 bg-gray-900">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-bold text-center mb-12">Featured Parts</h2>
+                    <div id="featured-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                        <!-- Featured products will be injected here -->
+                    </div>
+                </div>
+            </section>
         </div>
 
-        <!-- Products Section -->
-        <section id="products" class="py-20 bg-gray-900">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-3xl font-bold text-center mb-12">Featured Parts</h2>
-                <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Product cards will be injected here by JavaScript -->
-                </div>
-            </div>
-        </section>
+        <!-- Category/Content Pages Container -->
+        <div data-page="all-products" class="hidden"></div>
+        <div data-page="turbochargers" class="hidden"></div>
+        <div data-page="exhausts" class="hidden"></div>
+        <div data-page="suspension" class="hidden"></div>
 
-        <!-- About Us Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
-                <h2 class="text-3xl font-bold mb-6">Born from Passion</h2>
-                <p class="text-gray-400 leading-relaxed">
-                    Based in the heart of Tokyo, Redline Motors was founded by a team of enthusiasts dedicated to sourcing and exporting the best performance parts Japan has to offer. We live and breathe JDM culture, and we're committed to helping you build the car of your dreams, no matter where you are in the world.
-                </p>
-            </div>
-        </section>
+        <!-- About Us Page -->
+        <div data-page="about" class="hidden">
+            <section class="py-20">
+                <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl text-center">
+                    <h2 class="text-3xl font-bold mb-6">Born from Passion</h2>
+                    <p class="text-gray-400 leading-relaxed">
+                        Based in the heart of Tokyo, Redline Motors was founded by a team of enthusiasts dedicated to sourcing and exporting the best performance parts Japan has to offer. We live and breathe JDM culture, and we're committed to helping you build the car of your dreams, no matter where you are in the world.
+                    </p>
+                </div>
+            </section>
+        </div>
     </main>
     
     <!-- Footer -->
@@ -128,22 +137,17 @@
 
     <!-- Shopping Cart Panel -->
     <div id="cart-panel" class="cart-panel fixed top-0 right-0 h-full w-full max-w-md bg-gray-800 shadow-2xl z-50 transform translate-x-full">
+        <!-- ... (cart content remains the same) ... -->
         <div class="flex flex-col h-full">
-            <!-- Cart Header -->
             <div class="flex items-center justify-between p-6 border-b border-gray-700">
                 <h3 class="text-xl font-bold">Your Cart</h3>
                 <button id="close-cart-btn" class="text-gray-400 hover:text-white transition-colors">
                     <i class="fa-solid fa-times text-2xl"></i>
                 </button>
             </div>
-
-            <!-- Cart Items -->
             <div id="cart-items" class="flex-grow p-6 overflow-y-auto">
-                <!-- Cart items will be injected here -->
                 <p id="empty-cart-message" class="text-gray-400">Your cart is empty.</p>
             </div>
-
-            <!-- Cart Footer -->
             <div class="p-6 border-t border-gray-700">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-lg font-medium">Subtotal</span>
@@ -163,20 +167,24 @@
 
         // --- DATA ---
         const products = [
-            { id: 'prod_001', name: 'GReddy T88 Turbo Kit', price: 350000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=GReddy+T88' },
-            { id: 'prod_002', name: 'HKS Hi-Power Exhaust', price: 95000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=HKS+Exhaust' },
-            { id: 'prod_003', name: 'TEIN Flex Z Coilovers', price: 150000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=TEIN+Coilovers' },
-            { id: 'prod_004', name: 'Apexi Power FC ECU', price: 120000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Apexi+ECU' },
-            { id: 'prod_005', name: 'Brembo GT Brake Kit', price: 450000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Brembo+Brakes' },
-            { id: 'prod_006', name: 'Rays TE37 Wheels (Set)', price: 400000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Rays+TE37' },
-            { id: 'prod_007', name: 'Cusco Strut Brace', price: 25000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Cusco+Brace' },
-            { id: 'prod_008', name: 'Spoon Sports Intake', price: 60000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Spoon+Intake' }
+            { id: 'prod_001', name: 'GReddy T88 Turbo Kit', price: 350000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=GReddy+T88', category: 'turbochargers' },
+            { id: 'prod_002', name: 'HKS Hi-Power Exhaust', price: 95000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=HKS+Exhaust', category: 'exhausts' },
+            { id: 'prod_003', name: 'TEIN Flex Z Coilovers', price: 150000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=TEIN+Coilovers', category: 'suspension' },
+            { id: 'prod_004', name: 'Apexi Power FC ECU', price: 120000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Apexi+ECU', category: 'suspension' },
+            { id: 'prod_005', name: 'Brembo GT Brake Kit', price: 450000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Brembo+Brakes', category: 'suspension' },
+            { id: 'prod_006', name: 'Rays TE37 Wheels (Set)', price: 400000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Rays+TE37', category: 'suspension' },
+            { id: 'prod_007', name: 'Cusco Strut Brace', price: 25000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Cusco+Brace', category: 'suspension' },
+            { id: 'prod_008', name: 'Spoon Sports Intake', price: 60000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Spoon+Intake', category: 'exhausts' },
+            { id: 'prod_009', name: 'Tomei Expreme Ti Muffler', price: 110000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Tomei+Exhaust', category: 'exhausts' },
+            { id: 'prod_010', name: 'Garrett G25-660 Turbo', price: 280000, image: 'https://placehold.co/400x400/1F2937/FFFFFF?text=Garrett+Turbo', category: 'turbochargers' },
         ];
 
         let cart = [];
 
         // --- ELEMENTS ---
-        const productGrid = document.getElementById('product-grid');
+        const pageElements = document.querySelectorAll('[data-page]');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const mainContent = document.querySelector('main');
         const cartIcon = document.getElementById('cart-icon');
         const cartPanel = document.getElementById('cart-panel');
         const cartOverlay = document.getElementById('cart-overlay');
@@ -187,15 +195,21 @@
         const cartSubtotal = document.getElementById('cart-subtotal');
         const checkoutBtn = document.getElementById('checkout-btn');
 
-        // --- FUNCTIONS ---
+        // --- PAGE NAVIGATION ---
+        function showPage(pageId) {
+            pageElements.forEach(page => {
+                if (page.dataset.page === pageId) {
+                    page.classList.remove('hidden');
+                } else {
+                    page.classList.add('hidden');
+                }
+            });
+            window.scrollTo(0, 0); // Scroll to top on page change
+        }
 
-        // Initialize Stripe.js (Use a TEST publishable key)
-        // IMPORTANT: Replace with your actual public key in a real application.
-        const stripe = Stripe('pk_test_TYooMQauvdEDq54NiTphI7jx'); // This is a public test key from Stripe docs
-
-        // Render products on the page
-        function renderProducts() {
-            productGrid.innerHTML = products.map(product => `
+        // --- RENDER FUNCTIONS ---
+        function createProductCard(product) {
+            return `
                 <div class="glass-effect rounded-lg overflow-hidden shadow-lg flex flex-col">
                     <img src="${product.image}" alt="${product.name}" class="w-full h-56 object-cover">
                     <div class="p-6 flex-grow flex flex-col">
@@ -207,12 +221,42 @@
                         </button>
                     </div>
                 </div>
-            `).join('');
+            `;
+        }
+        
+        function createProductPage(pageId, title, productList) {
+            const pageContainer = document.querySelector(`[data-page="${pageId}"]`);
+            if (!pageContainer) return;
+            
+            const productGrid = productList.map(createProductCard).join('');
+            
+            pageContainer.innerHTML = `
+                <section class="py-20 bg-gray-900">
+                    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                        <h2 class="text-3xl font-bold text-center mb-12">${title}</h2>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                            ${productGrid}
+                        </div>
+                    </div>
+                </section>
+            `;
         }
 
-        // Render cart items in the panel
+        function initializePages() {
+            // Render featured products on home page (first 4)
+            const featuredGrid = document.getElementById('featured-product-grid');
+            featuredGrid.innerHTML = products.slice(0, 4).map(createProductCard).join('');
+
+            // Create category pages
+            createProductPage('all-products', 'All Parts', products);
+            createProductPage('turbochargers', 'Turbochargers', products.filter(p => p.category === 'turbochargers'));
+            createProductPage('exhausts', 'Exhausts', products.filter(p => p.category === 'exhausts'));
+            createProductPage('suspension', 'Suspension', products.filter(p => p.category === 'suspension'));
+        }
+
+        // --- CART LOGIC (mostly unchanged) ---
+        // (The cart functions: renderCart, handleAddToCart, etc. are the same as before)
         function renderCart() {
-            // Update cart item count badge
             const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
             if (totalItems > 0) {
                 cartItemCount.textContent = totalItems;
@@ -220,8 +264,6 @@
             } else {
                 cartItemCount.classList.add('hidden');
             }
-            
-            // Render items or show empty message
             if (cart.length === 0) {
                 cartItemsContainer.innerHTML = '';
                 emptyCartMessage.classList.remove('hidden');
@@ -250,16 +292,12 @@
                     `;
                 }).join('');
             }
-
-            // Update subtotal
             const subtotal = cart.reduce((sum, item) => {
                 const product = products.find(p => p.id === item.id);
                 return sum + (product.price * item.quantity);
             }, 0);
             cartSubtotal.textContent = `¥${subtotal.toLocaleString()}`;
         }
-        
-        // --- EVENT HANDLERS ---
         function handleAddToCart(productId) {
             const existingItem = cart.find(item => item.id === productId);
             if (existingItem) {
@@ -269,12 +307,10 @@
             }
             renderCart();
         }
-        
         function handleRemoveFromCart(productId) {
             cart = cart.filter(item => item.id !== productId);
             renderCart();
         }
-        
         function handleQuantityChange(productId, change) {
             const item = cart.find(item => item.id === productId);
             if (item) {
@@ -286,55 +322,28 @@
                 }
             }
         }
-
         function openCart() {
             cartPanel.classList.remove('translate-x-full');
             cartOverlay.classList.remove('hidden');
         }
-
         function closeCart() {
             cartPanel.classList.add('translate-x-full');
             cartOverlay.classList.add('hidden');
         }
-        
-        // In a real application, you would create a server-side endpoint
-        // to create a Checkout Session. For this demo, we'll just log to console.
         function handleCheckout() {
-            console.log("Starting checkout...");
-            console.log("Cart items:", cart);
-            
-            // 1. You would send `cart` data to your server.
-            // 2. Your server would create a Stripe Checkout session with line items.
-            // 3. Your server returns a session ID.
-            // 4. You redirect to Stripe's hosted checkout page.
-            
-            alert('Redirecting to Stripe for secure payment.\n(This is a simulation. No real payment will be processed.)');
-            
-            /*
-            // Example of real Stripe redirect:
-            const lineItems = cart.map(item => {
-                const product = products.find(p => p.id === item.id);
-                return {
-                    price_data: {
-                        currency: 'jpy',
-                        product_data: {
-                            name: product.name,
-                        },
-                        unit_amount: product.price,
-                    },
-                    quantity: item.quantity
-                };
-            });
-            // This would be done on your server!
-            // fetch('/create-checkout-session', { method: 'POST', body: JSON.stringify({ items: lineItems }) })
-            //   .then(res => res.json())
-            //   .then(session => stripe.redirectToCheckout({ sessionId: session.id }))
-            //   .catch(error => console.error('Error:', error));
-            */
+             alert('Redirecting to Stripe for secure payment.\n(This is a simulation. No real payment will be processed.)');
         }
         
         // --- EVENT LISTENERS ---
-        productGrid.addEventListener('click', e => {
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.dataset.target;
+                showPage(targetPage);
+            });
+        });
+
+        mainContent.addEventListener('click', e => {
             if (e.target.classList.contains('add-to-cart-btn')) {
                 const productId = e.target.dataset.id;
                 handleAddToCart(productId);
@@ -345,9 +354,7 @@
         cartItemsContainer.addEventListener('click', e => {
             const button = e.target.closest('button');
             if (!button) return;
-
             const productId = button.dataset.id;
-
             if (button.classList.contains('remove-from-cart-btn')) {
                 handleRemoveFromCart(productId);
             }
@@ -363,7 +370,8 @@
         checkoutBtn.addEventListener('click', handleCheckout);
 
         // --- INITIALIZATION ---
-        renderProducts();
+        initializePages();
+        showPage('home'); // Show home page by default
         renderCart();
 
     });
