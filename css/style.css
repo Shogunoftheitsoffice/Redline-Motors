@@ -27,6 +27,14 @@ body {
     margin: 0 auto;
 }
 
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
 /* --- Header & Navigation --- */
 header {
     background-color: rgba(18, 18, 18, 0.8);
@@ -50,6 +58,9 @@ nav {
     color: white;
     text-decoration: none;
 }
+.logo:hover {
+    text-decoration: none;
+}
 
 .logo span {
     color: var(--primary-color);
@@ -61,21 +72,32 @@ nav ul {
     gap: 2rem;
 }
 
-nav a {
+nav ul a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-nav a:hover {
+nav ul a:hover {
     color: var(--primary-color);
+    text-decoration: none;
 }
 
-/* --- Hero Section --- */
+/* --- Hero Sections --- */
 .hero {
     height: 70vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://via.placeholder.com/1920x1080.png/000000/FFFFFF?text=Cool+JDM+Car+Background') no-repeat center center/cover;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=Cool+JDM+Car+Background') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* NEW: Smaller hero for internal pages */
+.hero-small {
+    height: 30vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x1080/000000/FFFFFF?text=Carbon+Fiber+Weave') no-repeat center center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -108,6 +130,7 @@ nav a:hover {
 .cta-button:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+    text-decoration: none;
 }
 
 /* --- Products Section --- */
@@ -123,6 +146,39 @@ nav a:hover {
     color: white;
 }
 
+/* NEW: Filter Bar Styles */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    border: 1px solid #333;
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: var(--body-font);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background-color: #333;
+    border-color: #555;
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -135,6 +191,8 @@ nav a:hover {
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* For filtering */
+    flex-direction: column;
 }
 
 .product-card:hover {
@@ -157,7 +215,7 @@ nav a:hover {
 .product-card .description {
     padding: 0 1.5rem;
     font-size: 0.9rem;
-    height: 60px; /* Ensures consistent card height */
+    flex-grow: 1; /* Allows footer to align */
 }
 
 .product-card .price {
@@ -179,11 +237,29 @@ nav a:hover {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-top: auto; /* Pushes button to bottom */
 }
 
 .buy-button:hover {
     background-color: #c00000;
 }
+
+/* NEW: Temp Page Styles */
+.temp-page-content {
+    padding: 5rem 0;
+    text-align: center;
+}
+.temp-page-content h1 {
+    font-family: var(--heading-font);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.temp-page-content p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0.5rem auto;
+}
+
 
 /* --- Footer --- */
 footer {
